@@ -64,12 +64,7 @@ export default function App() {
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="app-header">
         <h1 className="app-header__title">Dungeon Tracker</h1>
-        <svg className="app-header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2L8 6H4l2 4-4 8h6l2 4h4l2-4h6l-4-8-2-4h-4l-2-4z"/>
-          <circle cx="9" cy="10" r="1" fill="currentColor"/>
-          <circle cx="15" cy="10" r="1" fill="currentColor"/>
-          <path d="M10 14h4"/>
-        </svg>
+        <span className="material-symbols-outlined app-header__icon">swords</span>
       </header>
 
       {/* ── GM Toolbar ─────────────────────────────────────────────────── */}

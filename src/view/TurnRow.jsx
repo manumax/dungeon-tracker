@@ -65,23 +65,25 @@ export function TurnRow({
         {isCurrent && <span className="turn-row__pip" />}
       </div>
 
-      {/* Centre: flags + events */}
+        {/* Centre: flags + events */}
       <div className="turn-row__body">
-        <div className="turn-row__flags">
-          {isWander && (
-            <span className="badge badge--w" title="Roll wandering monsters">W</span>
-          )}
-          {isRest && (
-            <span className="badge badge--r" title="Party must rest 1 turn">R</span>
-          )}
-        </div>
+        {(isWander || isRest) && (
+          <div className="turn-row__flags">
+            {isWander && (
+              <span className="badge badge--w" title="Roll wandering monsters">W</span>
+            )}
+            {isRest && (
+              <span className="badge badge--r" title="Party must rest 1 turn">R</span>
+            )}
+          </div>
+        )}
 
         {/* Custom events */}
         {events.length > 0 && (
           <div className="turn-row__events">
             {events.map((ev, i) => (
               <span key={i} className="event-chip">
-                {ev}
+                <span className="event-chip__text">{ev}</span>
                 {isGM && (
                   <button
                     className="event-chip__remove"

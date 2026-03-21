@@ -1,0 +1,13 @@
+{
+  "name": "OSE Dungeon Tracker",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSI2IiBmaWxsPSIjMWExNzEwIi8+PHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMiIgc3Ryb2tlPSIjYzRhNDVhIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSIyNiIgeT0iOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMiIgc3Ryb2tlPSIjYzRhNDVhIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSI4IiB5PSIyNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMiIgc3Ryb2tlPSIjYzRhNDVhIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSIyNiIgeT0iMjYiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjIiIHN0cm9rZT0iI2M0YTQ1YSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMyIgZmlsbD0iI2M0YTQ1YSIvPjxjaXJjbGUgY3g9IjMzIiBjeT0iMTUiIHI9IjMiIGZpbGw9IiNjNGE0NWEiLz48Y2lyY2xlIGN4PSIxNSIgY3k9IjMzIiByPSIzIiBmaWxsPSIjYzRhNDVhIi8+PGNpcmNsZSBjeD0iMzMiIGN5PSIzMyIgcj0iMyIgZmlsbD0iI2M0YTQ1YSIvPjwvc3ZnPg==",
+  "action": {
+    "title": "Dungeon Tracker",
+    "icon": "/icon.svg",
+    "popover": "/",
+    "height": 580,
+    "width": 360
+  }
+}

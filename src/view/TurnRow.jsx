@@ -120,11 +120,13 @@ export function TurnRow({
               {isPast ? "↩" : "→"}
             </button>
           )}
-          <button
-            className="icon-btn"
-            onClick={startEditing}
-            title="Add event"
-          >+</button>
+          {!isPast && (
+            <button
+              className="icon-btn"
+              onClick={startEditing}
+              title="Add event"
+            >+</button>
+          )}
         </div>
       )}
     </div>

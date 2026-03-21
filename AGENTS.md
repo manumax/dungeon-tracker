@@ -147,17 +147,20 @@ export function getTurnMeta(globalIdx) { ... }
 ## File Structure
 
 ```
-manifest.json   ← OBR extension manifest
+manifest.json        ← OBR extension manifest
 public/
-  icon.svg      ← toolbar icon (48x48)
-index.html      ← HTML entry point
-main.jsx        ← React entry point
-App.jsx         ← root component, GM toolbar, hour groups
-TurnRow.jsx     ← single turn list row
-useTracker.js   ← OBR metadata sync hook
-constants.js    ← OSE rules, METADATA_KEY
-index.css       ← all styles
-vite.config.js   ← Vite + React config
+  icon.svg           ← toolbar icon (48x48)
+index.html           ← HTML entry point
+vite.config.js       ← Vite + React config
+src/
+  lib/
+    constants.js     ← OSE rules, METADATA_KEY
+    useTracker.js    ← OBR metadata sync hook
+  view/
+    main.jsx         ← React entry point
+    App.jsx          ← root component, GM toolbar, hour groups
+    TurnRow.jsx      ← single turn list row
+    index.css        ← all styles
 ```
 
 ## Development Workflow

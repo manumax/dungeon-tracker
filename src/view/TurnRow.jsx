@@ -3,7 +3,7 @@ import {
   getTurnMeta,
   TORCH_DURATION,
   LANTERN_DURATION,
-} from "./constants.js";
+} from "../lib/constants.js";
 
 /**
  * TurnRow — one row in the compact list view.

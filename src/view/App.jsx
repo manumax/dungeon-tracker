@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
-import { useTracker } from "./useTracker.js";
+import { useTracker } from "../lib/useTracker.js";
 import { TurnRow } from "./TurnRow.jsx";
 import {
   TURNS_PER_DAY,
   TURNS_PER_HOUR,
   makeInitialState,
-} from "./constants.js";
+} from "../lib/constants.js";
 
 const ALL_TURNS = Array.from({ length: TURNS_PER_DAY }, (_, i) => i);
 const HOURS     = Array.from({ length: TURNS_PER_DAY / TURNS_PER_HOUR }, (_, i) => i);

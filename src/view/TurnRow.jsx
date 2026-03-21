@@ -69,12 +69,7 @@ export function TurnRow({
       <div className="turn-row__body">
         <div className="turn-row__flags">
           {isWander && (
-            <img 
-              className="badge badge--dragon" 
-              src="https://as1.ftcdn.net/v2/jpg/18/50/99/04/1000_F_1850990434_ACbKBvAkK08isUpVFoVrJBhzvwF0elcK.jpg" 
-              alt="Wandering Monster"
-              title="Roll wandering monsters"
-            />
+            <span className="badge badge--w" title="Roll wandering monsters">Wandering Monster</span>
           )}
           {isRest && (
             <span className="badge badge--r" title="Party must rest 1 turn">R</span>

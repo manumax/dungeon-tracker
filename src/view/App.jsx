@@ -113,7 +113,7 @@ export default function App() {
       <footer className="app-footer">
         {!isGM && <span className="view-only">Viewing only</span>}
         <span className="legend">
-          <img className="badge badge--dragon" src="https://as1.ftcdn.net/v2/jpg/18/50/99/04/1000_F_1850990434_ACbKBvAkK08isUpVFoVrJBhzvwF0elcK.jpg" alt="Wandering Monster" title="Roll wandering monsters" /> Wandering Monster &nbsp;
+          <span className="badge badge--w">Wandering Monster</span> &nbsp;
           <span className="badge badge--r">R</span> Rest
         </span>
       </footer>

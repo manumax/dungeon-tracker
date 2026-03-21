@@ -86,7 +86,7 @@ export default function App() {
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="app-header">
         <div className="app-header__titles">
-          <span className="app-header__title">Dungeon Tracker</span>
+          <h1 className="app-header__title">Dungeon Tracker</h1>
           <span className="app-header__sub">Old-School Essentials</span>
         </div>
         <div className="app-header__status">
@@ -146,7 +146,7 @@ export default function App() {
         })}
       </div>
 
-      {/* ── Footer legend ──────────────────────────────────────────────── */}
+      {/* ── Footer legend ─────────────────────────────────────────────── */}
       <footer className="app-footer">
         {!isGM && <span className="view-only">Viewing only</span>}
         <span className="legend">

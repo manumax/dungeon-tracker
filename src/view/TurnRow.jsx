@@ -40,7 +40,6 @@ export function TurnRow({
   const isPast    = idx < currentTurn;
   const isFuture  = idx > currentTurn;
 
-  // Light expiry: expires *at the start* of the turn after duration ends
   const torchExpires   = torchLitAt !== null ? torchLitAt + TORCH_DURATION   : -1;
   const lanternExpires = lanternLitAt !== null ? lanternLitAt + LANTERN_DURATION : -1;
   const isTorchExpiry   = idx === torchExpires;
@@ -60,7 +59,6 @@ export function TurnRow({
 
   function startEditing() {
     setEditing(true);
-    // focus on next tick after render
     setTimeout(() => inputRef.current?.focus(), 0);
   }
 
@@ -75,7 +73,7 @@ export function TurnRow({
         isRest    ? "is-rest"    : "",
       ].filter(Boolean).join(" ")}
     >
-      {/* Left: number + state marker */}
+      {/* Left: number + pip */}
       <div className="turn-row__gutter">
         <span className="turn-row__num">{turnNum}</span>
         {isCurrent && <span className="turn-row__pip" />}

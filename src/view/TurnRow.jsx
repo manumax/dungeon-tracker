@@ -1,9 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  getTurnMeta,
-  TORCH_DURATION,
-  LANTERN_DURATION,
-} from "../lib/constants.js";
+import { getTurnMeta } from "../lib/constants.js";
 
 /**
  * TurnRow — one row in the compact list view.
@@ -12,8 +8,6 @@ import {
  *   idx           — 0-based global turn index
  *   currentTurn   — current active turn index
  *   events        — string[] of custom events on this turn
- *   torchLitAt    — turn torch was lit, or null
- *   lanternLitAt  — turn lantern was lit, or null
  *   isGM
  *   onSetCurrent  — (idx) set this turn as current
  *   onAddEvent    — (idx, label)
@@ -23,8 +17,6 @@ export function TurnRow({
   idx,
   currentTurn,
   events,
-  torchLitAt,
-  lanternLitAt,
   isGM,
   onSetCurrent,
   onAddEvent,
@@ -38,12 +30,6 @@ export function TurnRow({
 
   const isCurrent = idx === currentTurn;
   const isPast    = idx < currentTurn;
-  const isFuture  = idx > currentTurn;
-
-  const torchExpires   = torchLitAt !== null ? torchLitAt + TORCH_DURATION   : -1;
-  const lanternExpires = lanternLitAt !== null ? lanternLitAt + LANTERN_DURATION : -1;
-  const isTorchExpiry   = idx === torchExpires;
-  const isLanternExpiry = idx === lanternExpires;
 
   function commitEvent() {
     const label = draft.trim();
@@ -87,12 +73,6 @@ export function TurnRow({
           )}
           {isRest && (
             <span className="badge badge--r" title="Party must rest 1 turn">R</span>
-          )}
-          {isTorchExpiry && (
-            <span className="badge badge--t" title="Torch expires">T</span>
-          )}
-          {isLanternExpiry && (
-            <span className="badge badge--l" title="Lantern expires">L</span>
           )}
         </div>
 

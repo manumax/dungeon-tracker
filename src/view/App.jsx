@@ -26,19 +26,6 @@ export default function App() {
     setState((s) => ({ ...s, currentTurn: idx })),
     [setState]);
 
-  // ── Light sources ────────────────────────────────────────────────────────
-  const toggleTorch = useCallback(() =>
-    setState((s) => ({
-      ...s,
-      torchLitAt: s.torchLitAt === null ? Math.max(s.currentTurn, 0) : null,
-    })), [setState]);
-
-  const toggleLantern = useCallback(() =>
-    setState((s) => ({
-      ...s,
-      lanternLitAt: s.lanternLitAt === null ? Math.max(s.currentTurn, 0) : null,
-    })), [setState]);
-
   // ── Events ───────────────────────────────────────────────────────────────
   const addEvent = useCallback((idx, label) =>
     setState((s) => ({
@@ -61,15 +48,6 @@ export default function App() {
   // ── Reset ────────────────────────────────────────────────────────────────
   const reset = useCallback(() => setState(makeInitialState()), [setState]);
 
-  // ── Status label ─────────────────────────────────────────────────────────
-  const turnLabel = state.currentTurn < 0
-    ? "Not started"
-    : `Turn ${state.currentTurn + 1} / ${TURNS_PER_DAY}`;
-
-  const hourLabel = state.currentTurn < 0
-    ? ""
-    : `Hour ${Math.floor(state.currentTurn / TURNS_PER_HOUR) + 1}`;
-
   // ── Loading ──────────────────────────────────────────────────────────────
   if (!ready) {
     return (
@@ -85,14 +63,7 @@ export default function App() {
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="app-header">
-        <div className="app-header__titles">
-          <h1 className="app-header__title">Dungeon Tracker</h1>
-          <span className="app-header__sub">Old-School Essentials</span>
-        </div>
-        <div className="app-header__status">
-          <span className="status-turn">{turnLabel}</span>
-          {hourLabel && <span className="status-hour">{hourLabel}</span>}
-        </div>
+        <h1 className="app-header__title">Dungeon Tracker</h1>
       </header>
 
       {/* ── GM Toolbar ─────────────────────────────────────────────────── */}
@@ -105,17 +76,6 @@ export default function App() {
             Next Turn ▶
           </button>
           <div className="toolbar__sep" />
-          <button
-            className={`tb-btn tb-btn--light ${state.torchLitAt !== null ? "is-lit" : ""}`}
-            onClick={toggleTorch}
-            title={state.torchLitAt !== null ? "Extinguish torch" : "Light torch (6t)"}
-          >🕯 Torch</button>
-          <button
-            className={`tb-btn tb-btn--light ${state.lanternLitAt !== null ? "is-lit" : ""}`}
-            onClick={toggleLantern}
-            title={state.lanternLitAt !== null ? "Extinguish lantern" : "Light lantern (24t)"}
-          >🏮 Lantern</button>
-          <div className="toolbar__sep" />
           <button className="tb-btn tb-btn--danger" onClick={reset}>↺ Reset</button>
         </div>
       )}
@@ -126,15 +86,12 @@ export default function App() {
           const start = h * TURNS_PER_HOUR;
           return (
             <div key={h} className="hour-group">
-              <div className="hour-group__label">Hour {h + 1}</div>
               {ALL_TURNS.slice(start, start + TURNS_PER_HOUR).map((idx) => (
                 <TurnRow
                   key={idx}
                   idx={idx}
                   currentTurn={state.currentTurn}
                   events={state.events[idx] || []}
-                  torchLitAt={state.torchLitAt}
-                  lanternLitAt={state.lanternLitAt}
                   isGM={isGM}
                   onSetCurrent={setTurn}
                   onAddEvent={addEvent}
@@ -151,9 +108,7 @@ export default function App() {
         {!isGM && <span className="view-only">Viewing only</span>}
         <span className="legend">
           <span className="badge badge--w">W</span> Wander &nbsp;
-          <span className="badge badge--r">R</span> Rest &nbsp;
-          <span className="badge badge--t">T</span> Torch &nbsp;
-          <span className="badge badge--l">L</span> Lantern
+          <span className="badge badge--r">R</span> Rest
         </span>
       </footer>
 

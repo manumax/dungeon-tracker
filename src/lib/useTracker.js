@@ -1,17 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import OBR from "@owlbear-rodeo/sdk";
-import { makeInitialState, METADATA_KEY } from "./constants.js";
+import { makeInitialState, migrateState, METADATA_KEY } from "./constants.js";
 
-/**
- * useTracker
- *
- * Manages tracker state synced to OBR room metadata.
- * SDK v3.x: OBR.onReady() returns void, no cleanup needed.
- */
 export function useTracker() {
-  const [ready, setReady]   = useState(false);
-  const [isGM, setIsGM]     = useState(false);
-  const [state, _setState]  = useState(makeInitialState);
+  const [ready, setReady]    = useState(false);
+  const [isGM, setIsGM]      = useState(false);
+  const [state, _setState]   = useState(makeInitialState);
+  const localStateRef         = useRef(makeInitialState());
   const unsubMetaRef         = useRef(null);
 
   useEffect(() => {
@@ -28,13 +23,19 @@ export function useTracker() {
       const meta = await OBR.room.getMetadata();
       if (!isMounted) return;
       if (meta[METADATA_KEY]) {
-        _setState(meta[METADATA_KEY]);
+        const migrated = migrateState(meta[METADATA_KEY]);
+        localStateRef.current = migrated;
+        _setState(migrated);
       }
 
       unsubMetaRef.current = OBR.room.onMetadataChange((meta) => {
         if (!isMounted) return;
-        if (meta[METADATA_KEY]) {
-          _setState(meta[METADATA_KEY]);
+        const incoming = meta[METADATA_KEY];
+        if (!incoming) return;
+        const migrated = migrateState(incoming);
+        if (migrated !== localStateRef.current) {
+          localStateRef.current = migrated;
+          _setState(migrated);
         }
       });
     });
@@ -50,6 +51,7 @@ export function useTracker() {
   const setState = useCallback((updater) => {
     _setState((prev) => {
       const next = typeof updater === "function" ? updater(prev) : updater;
+      localStateRef.current = next;
       OBR.room.setMetadata({ [METADATA_KEY]: next }).catch(console.error);
       return next;
     });

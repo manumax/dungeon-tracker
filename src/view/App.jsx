@@ -4,11 +4,12 @@ import { TurnRow } from "./TurnRow.jsx";
 import {
   TURNS_PER_DAY,
   TURNS_PER_HOUR,
+  HOURS_PER_DAY,
   makeInitialState,
 } from "../lib/constants.js";
 
 const ALL_TURNS = Array.from({ length: TURNS_PER_DAY }, (_, i) => i);
-const HOURS     = Array.from({ length: TURNS_PER_DAY / TURNS_PER_HOUR }, (_, i) => i);
+const HOURS     = Array.from({ length: HOURS_PER_DAY }, (_, i) => i);
 
 export default function App() {
   const { state, setState, ready, isGM } = useTracker();
@@ -32,13 +33,13 @@ export default function App() {
       ...s,
       events: {
         ...s.events,
-        [idx]: [...(s.events[idx] || []), label],
+        [idx]: [...(s.events[idx] || []), { id: crypto.randomUUID(), label }],
       },
     })), [setState]);
 
-  const removeEvent = useCallback((idx, evIdx) =>
+  const removeEvent = useCallback((idx, evId) =>
     setState((s) => {
-      const updated = (s.events[idx] || []).filter((_, i) => i !== evIdx);
+      const updated = (s.events[idx] || []).filter((ev) => ev.id !== evId);
       const events  = { ...s.events };
       if (updated.length === 0) delete events[idx];
       else events[idx] = updated;
@@ -58,6 +59,8 @@ export default function App() {
     );
   }
 
+  const notStarted = state.currentTurn === -1;
+
   return (
     <div className="app">
 
@@ -71,13 +74,14 @@ export default function App() {
       {isGM && (
         <div className="toolbar">
           <button className="tb-btn tb-btn--ghost" onClick={retreat}
-            disabled={state.currentTurn < 0} title="Previous turn">◀</button>
+            disabled={state.currentTurn < 0} aria-label="Previous turn">◀</button>
           <button className="tb-btn tb-btn--primary" onClick={advance}
-            disabled={state.currentTurn >= TURNS_PER_DAY - 1}>
-            Next Turn ▶
+            disabled={state.currentTurn >= TURNS_PER_DAY - 1}
+            aria-label={notStarted ? "Start session" : "Next turn"}>
+            {notStarted ? "Start Session" : "Next Turn ▶"}
           </button>
           <div className="toolbar__sep" />
-          <button className="tb-btn tb-btn--danger" onClick={reset}>↺ Reset</button>
+          <button className="tb-btn tb-btn--danger" onClick={reset} aria-label="Reset tracker">↺ Reset</button>
         </div>
       )}
 
@@ -108,7 +112,7 @@ export default function App() {
       <footer className="app-footer">
         {!isGM && <span className="view-only">Viewing only</span>}
         <span className="legend">
-          <span className="badge badge--w">W</span> Wandering Monster &nbsp;
+          <span className="badge badge--w">W</span> Wandering Monster
           <span className="badge badge--r">R</span> Rest
         </span>
       </footer>

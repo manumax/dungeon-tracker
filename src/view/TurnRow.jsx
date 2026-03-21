@@ -1,18 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { getTurnMeta } from "../lib/constants.js";
 
-/**
- * TurnRow — one row in the compact list view.
- *
- * Props:
- *   idx           — 0-based global turn index
- *   currentTurn   — current active turn index
- *   events        — string[] of custom events on this turn
- *   isGM
- *   onSetCurrent  — (idx) set this turn as current
- *   onAddEvent    — (idx, label)
- *   onRemoveEvent — (idx, eventIdx)
- */
 export function TurnRow({
   idx,
   currentTurn,
@@ -31,22 +19,22 @@ export function TurnRow({
   const isCurrent = idx === currentTurn;
   const isPast    = idx < currentTurn;
 
-  function commitEvent() {
+  const commitEvent = useCallback(() => {
     const label = draft.trim();
     if (label) onAddEvent(idx, label);
     setDraft("");
     setEditing(false);
-  }
+  }, [draft, idx, onAddEvent]);
 
-  function handleKeyDown(e) {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === "Enter")  commitEvent();
     if (e.key === "Escape") { setDraft(""); setEditing(false); }
-  }
+  }, [commitEvent]);
 
-  function startEditing() {
+  const startEditing = useCallback(() => {
     setEditing(true);
     setTimeout(() => inputRef.current?.focus(), 0);
-  }
+  }, []);
 
   const turnNum = idx + 1;
 
@@ -54,9 +42,9 @@ export function TurnRow({
     <div
       className={[
         "turn-row",
-        isCurrent ? "is-current" : "",
-        isPast    ? "is-past"    : "",
-        isRest    ? "is-rest"    : "",
+        isCurrent  ? "is-current" : "",
+        isPast     ? "is-past"    : "",
+        isRest     ? "is-rest"    : "",
       ].filter(Boolean).join(" ")}
     >
       {/* Left: number + pip */}
@@ -65,7 +53,7 @@ export function TurnRow({
         {isCurrent && <span className="turn-row__pip" />}
       </div>
 
-        {/* Centre: flags + events */}
+      {/* Centre: flags + events */}
       <div className="turn-row__body">
         {(isWander || isRest) && (
           <div className="turn-row__flags">
@@ -78,17 +66,16 @@ export function TurnRow({
           </div>
         )}
 
-        {/* Custom events */}
         {events.length > 0 && (
           <div className="turn-row__events">
-            {events.map((ev, i) => (
-              <span key={i} className="event-chip">
-                <span className="event-chip__text">{ev}</span>
+            {events.map((ev) => (
+              <span key={ev.id} className="event-chip">
+                <span className="event-chip__text">{ev.label}</span>
                 {isGM && (
                   <button
                     className="event-chip__remove"
-                    onClick={() => onRemoveEvent(idx, i)}
-                    title="Remove"
+                    onClick={() => onRemoveEvent(idx, ev.id)}
+                    aria-label={`Remove event: ${ev.label}`}
                   >×</button>
                 )}
               </span>
@@ -96,7 +83,6 @@ export function TurnRow({
           </div>
         )}
 
-        {/* Inline event input */}
         {editing && (
           <input
             ref={inputRef}
@@ -106,6 +92,7 @@ export function TurnRow({
             onKeyDown={handleKeyDown}
             onBlur={commitEvent}
             placeholder="Event name…"
+            aria-label="Event name"
           />
         )}
       </div>
@@ -117,7 +104,7 @@ export function TurnRow({
             <button
               className="icon-btn"
               onClick={() => onSetCurrent(idx)}
-              title={isPast ? "Return to this turn" : "Jump to this turn"}
+              aria-label={isPast ? "Return to this turn" : "Jump to this turn"}
             >
               {isPast ? "↩" : "→"}
             </button>
@@ -126,7 +113,7 @@ export function TurnRow({
             <button
               className="icon-btn"
               onClick={startEditing}
-              title="Add event"
+              aria-label="Add event"
             >+</button>
           )}
         </div>

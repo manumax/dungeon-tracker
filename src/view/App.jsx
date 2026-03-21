@@ -63,7 +63,7 @@ export default function App() {
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="app-header">
-        <h1 className="app-header__title">Dungeon Tracker</h1>
+        <h1 className="app-header__title">Lantern</h1>
       </header>
 
       {/* ── GM Toolbar ─────────────────────────────────────────────────── */}

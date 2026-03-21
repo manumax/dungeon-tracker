@@ -113,7 +113,7 @@ export default function App() {
       <footer className="app-footer">
         {!isGM && <span className="view-only">Viewing only</span>}
         <span className="legend">
-          <span className="badge badge--w">Wandering Monster</span> &nbsp;
+          <span className="badge badge--w">W</span> Wandering Monster &nbsp;
           <span className="badge badge--r">R</span> Rest
         </span>
       </footer>

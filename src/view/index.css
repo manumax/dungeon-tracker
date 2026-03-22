@@ -285,7 +285,6 @@ html, body {
   outline: 1.5px solid var(--ink);
 }
 
-/* T — dashed, muted (informational) */
 .badge--t {
   background: transparent;
   color: var(--ink-mid);
@@ -299,6 +298,29 @@ html, body {
   outline: 1px dashed var(--ink-mid);
 }
 
+.legend .badge--w {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.legend .badge--r {
+  background: transparent;
+  color: var(--paper);
+  outline: 1.5px solid var(--paper);
+}
+ 
+.legend .badge--t {
+  background: transparent;
+  color: var(--ink-faint);
+  outline: 1px dashed var(--ink-faint);
+}
+ 
+.legend .badge--l {
+  background: transparent;
+  color: var(--ink-faint);
+  outline: 1px dashed var(--ink-faint);
+}
+ 
 /* ── Event chips ────────────────────────────────────────────────────────── */
 .turn-row__events {
   display: flex;

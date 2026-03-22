@@ -5,7 +5,7 @@
   "icon": "icon.svg",
   "action": {
     "title": "Dungeon Tracker",
-    "icon": "icon.svg",
+    "icon": "/icon.svg",
     "popover": "/",
     "height": 580,
     "width": 360

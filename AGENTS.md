@@ -33,7 +33,7 @@ npm run preview  # Preview production build
 - `OBR.onReady()` returns **void** (SDK v3.x) — no cleanup needed
 - `OBR.room.onMetadataChange()` returns an **unsubscribe function**
 - State persistence uses `OBR.room.getMetadata()` and `OBR.room.setMetadata()`
-- **Always use namespaced keys** for metadata: `com.dungeon-tracker/state`
+- **Always use namespaced keys** for metadata: `io.manumax.dungeon-tracker/state`
 - `OBR.player.getRole()` returns `"GM"` or `"PLAYER"` — GM sees full controls, players see read-only view
 
 ### State Sync Pattern
@@ -171,3 +171,15 @@ src/
 4. Iterate on features, test in OBR
 5. Run `npm run build` for production build
 6. Host `dist/` folder and point OBR to `https://your-domain.com/manifest.json`
+
+## Deployment Workflow
+
+1. Develop on `develop` branch
+2. Merge `develop` into `main` to trigger Netlify deployment:
+   ```bash
+   git checkout main
+   git merge develop
+   git push
+   ```
+3. Netlify automatically builds and deploys from `main` branch
+4. Extension URL: `https://dungeon-tracker-obr.netlify.app/manifest.json`

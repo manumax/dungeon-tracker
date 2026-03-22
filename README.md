@@ -1,17 +1,17 @@
-# OSE Dungeon Time Tracker — Owlbear Rodeo Extension
+# Dungeon Tracker — Owlbear Rodeo Extension
 
-An Owlbear Rodeo extension that tracks dungeon turns for **Old-School Essentials**.
+An Owlbear Rodeo extension that tracks dungeon turns for OSE-like games.
 
 ## Features
 
 - 36-turn (6-hour) dungeon day, split into hourly groups
-- Automatic **W** (wandering monster) and **R** (rest) flags per OSE rules
+- Automatic **W** (wandering monster) and **R** (rest) flags per OSE-like rules
 - Torch 🕯 and Lantern 🏮 timers with automatic **T**/**L** expiry markers
 - Custom events on any turn (spells, conditions, effects)
 - Real-time sync across all players via OBR room metadata
 - GM-only controls; players see a read-only view
 
-## OSE Turn Rules encoded
+## OSE-like Turn Rules
 
 | Position in hour | Flags |
 |---|---|
@@ -55,6 +55,6 @@ src/
   App.jsx         ← root component, state actions
   TurnRow.jsx     ← single turn list row
   useTracker.js   ← OBR metadata sync hook
-  constants.js    ← OSE rules, METADATA_KEY
+  constants.js    ← turn rules, METADATA_KEY
   index.css       ← all styles
 ```

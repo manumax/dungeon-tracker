@@ -29,7 +29,7 @@ Build and style an Owlbear Rodeo toolbar popover extension that tracks dungeon t
 12. **Variable alignment** — `useTracker.js` has inconsistent whitespace in variable declarations
 13. **Redundant variable** — `turnNum = idx + 1` could be inlined
 14. **Unused React import** — `import React` not needed with React 17+ JSX transform
-15. **Outdated comment** — "OSE Turn Tracker" in constants.js; app is "Dungeon Tracker"
+15. **Outdated comment** — check constants.js header for accuracy
 
 ### Design (4)
 16. **Toolbar icon** — Still warm-gold SVG; doesn't match teal palette

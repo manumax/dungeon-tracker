@@ -1,10 +1,10 @@
-# Agent Guidelines for OSE Dungeon Tracker
+# Agent Guidelines for Dungeon Tracker
 
 **Official OBR Documentation**: https://docs.owlbear.rodeo/extensions/getting-started — use this to look up API details, SDK patterns, and extension best practices.
 
 ## Project Overview
 
-OSE Dungeon Tracker is an Owlbear Rodeo extension that tracks dungeon turns for Old-School Essentials. Development follows an iterative approach: start with a basic skeleton, then slowly add features.
+Dungeon Tracker is an Owlbear Rodeo extension that tracks dungeon turns for OSE-like games. Development follows an iterative approach: start with a basic skeleton, then slowly add features.
 
 **Tech Stack**: React 18, Vite, ESM modules, JavaScript (no TypeScript)
 **Type**: OBR Toolbar Popover Extension
@@ -33,7 +33,7 @@ npm run preview  # Preview production build
 - `OBR.onReady()` returns **void** (SDK v3.x) — no cleanup needed
 - `OBR.room.onMetadataChange()` returns an **unsubscribe function**
 - State persistence uses `OBR.room.getMetadata()` and `OBR.room.setMetadata()`
-- **Always use namespaced keys** for metadata: `com.ose-dungeon-tracker/state`
+- **Always use namespaced keys** for metadata: `com.dungeon-tracker/state`
 - `OBR.player.getRole()` returns `"GM"` or `"PLAYER"` — GM sees full controls, players see read-only view
 
 ### State Sync Pattern
@@ -51,7 +51,7 @@ const unsubMeta = OBR.room.onMetadataChange((meta) => {
 OBR.room.setMetadata({ [METADATA_KEY]: nextState }).catch(console.error);
 ```
 
-## OSE Rules Encoded
+## OSE-like Turn Rules
 
 | Turn in Hour | Position (0-indexed) | Flags | Meaning |
 |--------------|----------------------|-------|---------|
@@ -71,7 +71,7 @@ OBR.room.setMetadata({ [METADATA_KEY]: nextState }).catch(console.error);
 - `TURNS_PER_HOUR = 6`
 - `TORCH_DURATION = 6`
 - `LANTERN_DURATION = 24`
-- `METADATA_KEY = "com.ose-dungeon-tracker/state"`
+- `METADATA_KEY = "com.dungeon-tracker/state"`
 
 ## Code Style Guidelines
 
@@ -154,7 +154,7 @@ index.html           ← HTML entry point
 vite.config.js       ← Vite + React config
 src/
   lib/
-    constants.js     ← OSE rules, METADATA_KEY
+    constants.js     ← turn rules, METADATA_KEY
     useTracker.js    ← OBR metadata sync hook
   view/
     main.jsx         ← React entry point

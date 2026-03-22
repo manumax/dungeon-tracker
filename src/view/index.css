@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=swords");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
 
 /* ── Reset ──────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -7,177 +7,189 @@
   padding: 0;
 }
 
-/* ── Tokens (Multiverse palette) ───────────────────────────────────────── */
+/* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root {
-  --bg:           #242629;
-  --bg-alt:       #1f2224;
-  --bg-raised:    #34363b;
-  --text:         #a0a0a1;
-  --text-bright:  #ffffff;
-  --border:       #36383c;
-  --accent:       #34a58e;
-  --accent-hover: #47c5ab;
-  --accent-press: #287e6d;
-  --danger:       #f56a6a;
+  --paper:       #f5f0e8;
+  --paper-alt:   #eae5d8;
+  --paper-white: #ffffff;
+  --ink:         #000000;
+  --ink-mid:     #666666;
+  --ink-faint:   #bbbbbb;
+  --rule:        #cccccc;
 
-  --font: "Source Sans Pro", Helvetica, sans-serif;
+  --font: "IBM Plex Mono", "Courier New", monospace;
   --font-size: 11pt;
   --line-height: 1.5;
 }
 
-/* ── Root & Body ───────────────────────────────────────────────────────── */
+/* ── Root ───────────────────────────────────────────────────────────────── */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font);
   font-size: var(--font-size);
-  font-weight: 300;
-  letter-spacing: 0.025em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: var(--line-height);
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
   height: 100%;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font);
 }
 
-/* ── App shell ─────────────────────────────────────────────────────────── */
+/* ── App shell ──────────────────────────────────────────────────────────── */
 .app {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  border: 2px solid var(--ink);
 }
 
-/* ── Header ────────────────────────────────────────────────────────────── */
+/* ── Header ─────────────────────────────────────────────────────────────── */
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5em;
-  height: 4em;
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
+  padding: 0 1.25em;
+  height: 3.5em;
+  background: var(--ink);
+  border-bottom: 2px solid var(--ink);
   flex-shrink: 0;
 }
 
 .app-header__title {
   font-family: var(--font);
-  font-size: 0.85em;
-  font-weight: 300;
-  letter-spacing: 0.15em;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--text-bright);
+  color: var(--paper);
   margin: 0;
 }
 
 .app-header__icon {
-  font-size: 1.1em;
-  color: var(--text);
+  font-size: 1em;
+  color: var(--ink-mid);
   flex-shrink: 0;
 }
 
-/* ── Toolbar ──────────────────────────────────────────────────────────── */
+/* ── Toolbar ────────────────────────────────────────────────────────────── */
 .toolbar {
   display: flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.5em 1em;
-  border-bottom: 1px solid var(--border);
+  align-items: stretch;
+  gap: 0;
+  border-bottom: 2px solid var(--ink);
   flex-shrink: 0;
-  flex-wrap: nowrap;
+  height: 2.75em;
 }
 
 .toolbar__sep {
-  width: 1px;
-  height: 1.25em;
-  background: var(--border);
+  width: 2px;
+  background: var(--ink);
 }
 
-/* ── Buttons (Multiverse style) ────────────────────────────────────────── */
+/* ── Buttons ────────────────────────────────────────────────────────────── */
 .tb-btn {
   font-family: var(--font);
-  font-size: 0.8em;
-  font-weight: 300;
-  letter-spacing: 0.1em;
+  font-size: 0.65em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  height: 2.5em;
-  line-height: 2.5em;
+  height: 100%;
   padding: 0 1.25em;
   border: 0;
+  border-right: 2px solid var(--ink);
   border-radius: 0;
   cursor: pointer;
-  transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: background 0.1s, color 0.1s;
   white-space: nowrap;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.tb-btn:last-child {
+  border-right: 0;
 }
 
 .tb-btn:disabled {
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.25;
 }
 
 .tb-btn--primary {
   flex: 1;
-  background-color: var(--accent);
-  box-shadow: none;
-  color: var(--text-bright) !important;
+  background: var(--ink);
+  color: var(--paper);
 }
 .tb-btn--primary:not(:disabled):hover {
-  background-color: var(--accent-hover);
+  background: #222;
 }
 
 .tb-btn--ghost {
-  background-color: transparent;
-  box-shadow: inset 0 0 0 2px var(--border);
-  color: var(--text-bright) !important;
+  background: var(--paper);
+  color: var(--ink);
+  min-width: 3em;
 }
 .tb-btn--ghost:not(:disabled):hover {
-  box-shadow: inset 0 0 0 2px var(--accent);
-  color: var(--accent) !important;
+  background: var(--paper-alt);
 }
 
 .tb-btn--danger {
-  background-color: transparent;
-  box-shadow: inset 0 0 0 2px var(--border);
-  color: var(--text-bright) !important;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.6em;
 }
 .tb-btn--danger:hover {
-  box-shadow: inset 0 0 0 2px var(--accent);
-  color: var(--accent) !important;
+  background: var(--paper-alt);
 }
 
-/* ── Turn list ─────────────────────────────────────────────────────────── */
+/* ── Turn list ──────────────────────────────────────────────────────────── */
 .turn-list {
   flex: 1;
   overflow-y: auto;
+  background: var(--paper);
   scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+  scrollbar-color: var(--rule) transparent;
 }
 
-/* ── Hour group ────────────────────────────────────────────────────────── */
+/* ── Hour group ─────────────────────────────────────────────────────────── */
 .hour-group {
-  border-bottom: 1px solid var(--border);
+  /* no extra border, rows provide their own */
 }
 
-/* ── Turn row ─────────────────────────────────────────────────────────── */
+.hour-group__label {
+  font-family: var(--font);
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 0.35em 1.5em;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+
+/* ── Turn row ───────────────────────────────────────────────────────────── */
 .turn-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75em;
-  padding: 0.5em 1.5em;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  transition: background 0.1s;
-  min-height: 2.5em;
+  padding: 0.45em 1.25em;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  min-height: 2.4em;
+  transition: background 0.08s;
 }
 
 .turn-row:last-child {
@@ -185,24 +197,23 @@ html, body {
 }
 
 .turn-row.is-past {
-  background: var(--bg);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .turn-row.is-current {
-  background: var(--bg-raised);
-  border-left: 3px solid var(--accent);
-  padding-left: calc(1.5em - 3px);
+  background: var(--paper-white);
+  border-left: 4px solid var(--ink);
+  padding-left: calc(1.25em - 4px);
 }
 
 .turn-row.is-rest {
-  background: rgba(52, 165, 142, 0.08);
+  background: var(--paper-alt);
 }
 .turn-row.is-rest.is-current {
-  background: rgba(52, 165, 142, 0.15);
+  background: var(--paper-white);
 }
 
-/* ── Gutter: number + pip ──────────────────────────────────────────────── */
+/* ── Gutter ─────────────────────────────────────────────────────────────── */
 .turn-row__gutter {
   display: flex;
   flex-direction: column;
@@ -210,75 +221,101 @@ html, body {
   gap: 0.2em;
   width: 1.75em;
   flex-shrink: 0;
-  padding-top: 0.05em;
 }
 
 .turn-row__num {
   font-family: var(--font);
-  font-size: 0.8em;
-  font-weight: 300;
-  color: var(--text);
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--ink-mid);
   line-height: 1;
-  text-align: center;
+  text-align: right;
+  width: 100%;
 }
 
 .turn-row__pip {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
+  width: 6px;
+  height: 6px;
+  background: var(--ink);
+  border-radius: 0;
+  flex-shrink: 0;
 }
 
-/* ── Body: flags + events ───────────────────────────────────────────────── */
+/* ── Body ───────────────────────────────────────────────────────────────── */
 .turn-row__body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.15em;
+  gap: 0.2em;
   min-width: 0;
-  padding-top: 0.02em;
 }
 
 .turn-row__flags {
   display: flex;
-  gap: 0.5em;
+  gap: 0.4em;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 1.5em;
 }
 
-/* ── Badges ────────────────────────────────────────────────────────────── */
+/* ── Badges ─────────────────────────────────────────────────────────────── */
 .badge {
   display: inline-block;
   font-family: var(--font);
-  font-size: 0.65em;
-  font-weight: 300;
-  letter-spacing: 0.1em;
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.15em 0.5em;
+  padding: 0.1em 0.45em;
   border-radius: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.badge--w { background: transparent; box-shadow: inset 0 0 0 1px var(--accent); color: var(--accent); }
-.badge--r { background: transparent; box-shadow: inset 0 0 0 1px var(--danger); color: var(--danger); }
+/* W — solid black fill (high alert) */
+.badge--w {
+  background: var(--ink);
+  color: var(--paper);
+}
 
-/* ── Event chips ──────────────────────────────────────────────────────── */
+/* R — outline only (structural, expected) */
+.badge--r {
+  background: transparent;
+  color: var(--ink);
+  outline: 1.5px solid var(--ink);
+}
+
+/* T — dashed, muted (informational) */
+.badge--t {
+  background: transparent;
+  color: var(--ink-mid);
+  outline: 1px dashed var(--ink-mid);
+}
+
+/* L — dashed, muted */
+.badge--l {
+  background: transparent;
+  color: var(--ink-mid);
+  outline: 1px dashed var(--ink-mid);
+}
+
+/* ── Event chips ────────────────────────────────────────────────────────── */
 .turn-row__events {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4em;
+  gap: 0.35em;
 }
 
 .event-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.2em;
-  font-size: 0.75em;
-  color: var(--text-bright);
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
+  gap: 0.25em;
+  font-family: var(--font);
+  font-size: 0.62em;
+  color: var(--ink);
+  background: var(--paper-white);
+  border: 1px solid var(--ink);
   border-radius: 0;
-  padding: 0.15em 0.5em;
+  padding: 0.1em 0.5em;
   max-width: 180px;
 }
 
@@ -292,79 +329,85 @@ html, body {
 .event-chip__remove {
   background: none;
   border: none;
-  color: var(--text);
+  color: var(--ink-mid);
   cursor: pointer;
-  font-size: 1.25em;
+  font-size: 1.2em;
   line-height: 1;
   padding: 0;
   flex-shrink: 0;
-  margin-left: 0.25em;
+  margin-left: 0.2em;
 }
-.event-chip__remove:hover { color: var(--accent); }
+.event-chip__remove:hover {
+  color: var(--ink);
+}
 
-/* ── Inline event input ────────────────────────────────────────────────── */
+/* ── Inline event input ─────────────────────────────────────────────────── */
 .turn-row__input {
   font-family: var(--font);
-  font-size: 0.75em;
-  font-weight: 300;
-  background: var(--bg);
+  font-size: 0.7em;
+  font-weight: 400;
+  background: var(--paper-white);
   border: 0;
   border-radius: 0;
-  box-shadow: inset 0 0 0 2px var(--accent);
-  color: var(--text-bright);
+  outline: 2px solid var(--ink);
+  color: var(--ink);
   padding: 0.3em 0.6em;
-  outline: none;
   width: 100%;
   max-width: 180px;
+  letter-spacing: 0.02em;
 }
 
-/* ── Row actions ───────────────────────────────────────────────────────── */
+/* ── Row actions ────────────────────────────────────────────────────────── */
 .turn-row__actions {
   display: flex;
-  gap: 0.5em;
+  gap: 0.4em;
   align-items: center;
   flex-shrink: 0;
 }
 
 .icon-btn {
   background: none;
-  border: none;
-  color: var(--text);
-  font-size: 1em;
+  border: 1px solid var(--rule);
+  color: var(--ink-mid);
+  font-family: var(--font);
+  font-size: 0.7em;
   cursor: pointer;
-  padding: 0.25em 0.5em;
-  line-height: 1;
-  transition: color 0.2s ease-in-out;
+  padding: 0.15em 0.55em;
+  line-height: 1.4;
+  border-radius: 0;
+  transition: border-color 0.1s, color 0.1s;
 }
 .icon-btn:hover {
-  color: var(--accent);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
-/* ── Footer ────────────────────────────────────────────────────────────── */
+/* ── Footer ─────────────────────────────────────────────────────────────── */
 .app-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 1.5em;
-  border-top: 1px solid var(--border);
-  background: var(--bg-alt);
+  padding: 0.5em 1.25em;
+  border-top: 2px solid var(--ink);
+  background: var(--ink);
   flex-shrink: 0;
   gap: 1em;
 }
 
 .view-only {
   font-family: var(--font);
-  font-size: 0.7em;
-  letter-spacing: 0.1em;
+  font-size: 0.6em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--ink-mid);
 }
 
 .legend {
-  font-size: 0.7em;
-  letter-spacing: 0.05em;
+  font-family: var(--font);
+  font-size: 0.58em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--paper-alt);
   display: flex;
   align-items: center;
   gap: 0.75em;
@@ -372,7 +415,7 @@ html, body {
   margin-left: auto;
 }
 
-/* ── Loading ───────────────────────────────────────────────────────────── */
+/* ── Loading ────────────────────────────────────────────────────────────── */
 .loading {
   display: flex;
   flex-direction: column;
@@ -380,20 +423,21 @@ html, body {
   justify-content: center;
   height: 100%;
   gap: 0.75em;
-  color: var(--text);
+  color: var(--ink-mid);
   font-family: var(--font);
-  font-size: 0.85em;
-  font-weight: 300;
-  letter-spacing: 0.1em;
+  font-size: 0.75em;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  background: var(--paper);
 }
 
 .loading__flame {
-  font-size: 1.75em;
+  font-size: 1.5em;
   animation: flicker 1.4s ease-in-out infinite alternate;
 }
 
 @keyframes flicker {
-  from { opacity: 0.4; transform: scale(0.95) rotate(-3deg); }
+  from { opacity: 0.3; transform: scale(0.95) rotate(-3deg); }
   to   { opacity: 1;   transform: scale(1.05) rotate(3deg);  }
 }

@@ -5,7 +5,7 @@
   "icon": "/icon.svg",
   "action": {
     "title": "Dungeon Tracker",
-  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSI2IiBmaWxsPSIjMjQyNjI5Ii8+PHBhdGggZD0iTTEyIDM0TDE4IDI4SDIyTDI4IDIyTDIyIDE2VjEyTDEyIDIyWiIgc3Ryb2tlPSIjMzRhNThlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTcgMjdMMjcgMTciIHN0cm9rZT0iIzM0YTU4ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMjEgMTNIMjVWMTdIMjFWMTNaIiBmaWxsPSIjMzRhNThlIi8+PC9zdmc+",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNiAyMUwxMSAxNkwxMyAxOEwxOCAxM0wxNiAxMUwxNCAxM0w5IDhWM0g3VjhMMiAxM0w2IDE3TDggMTVMMTMgMjBMMTEgMjJMNiAyMVoiIGZpbGw9IiMzNGE1OGUiLz48L3N2Zz4=",
     "popover": "/",
     "height": 580,
     "width": 360

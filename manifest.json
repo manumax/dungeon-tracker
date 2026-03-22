@@ -2,10 +2,10 @@
   "name": "Dungeon Tracker",
   "version": "1.0.0",
   "manifest_version": 1,
-  "icon": "/icon.svg",
+  "icon": "icon.svg",
   "action": {
     "title": "Dungeon Tracker",
-    "icon": "/icon.svg",
+    "icon": "icon.svg",
     "popover": "/",
     "height": 580,
     "width": 360

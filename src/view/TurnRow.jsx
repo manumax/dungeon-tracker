@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { getTurnMeta } from "../lib/constants.js";
 
 export function TurnRow({
@@ -31,9 +31,14 @@ export function TurnRow({
     if (e.key === "Escape") { setDraft(""); setEditing(false); }
   }, [commitEvent]);
 
+  useEffect(() => {
+    if (editing) {
+      inputRef.current?.focus();
+    }
+  }, [editing]);
+
   const startEditing = useCallback(() => {
     setEditing(true);
-    setTimeout(() => inputRef.current?.focus(), 0);
   }, []);
 
   const turnNum = idx + 1;

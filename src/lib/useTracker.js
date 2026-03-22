@@ -33,7 +33,9 @@ export function useTracker() {
         const incoming = meta[METADATA_KEY];
         if (!incoming) return;
         const migrated = migrateState(incoming);
-        if (migrated !== localStateRef.current) {
+        const currentJson = JSON.stringify(localStateRef.current);
+        const incomingJson = JSON.stringify(migrated);
+        if (currentJson !== incomingJson) {
           localStateRef.current = migrated;
           _setState(migrated);
         }
@@ -52,6 +54,7 @@ export function useTracker() {
     _setState((prev) => {
       const next = typeof updater === "function" ? updater(prev) : updater;
       localStateRef.current = next;
+      // NOTE: No conflict resolution — last write wins if multiple GMs edit simultaneously
       OBR.room.setMetadata({ [METADATA_KEY]: next }).catch(console.error);
       return next;
     });

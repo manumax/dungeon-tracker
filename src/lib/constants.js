@@ -26,8 +26,15 @@ export function makeInitialState() {
 }
 
 export function migrateState(state) {
-  if (!state || state.v === undefined) {
-    return { ...makeInitialState(), ...state };
+  if (!state || state.v === undefined || state.v === null) {
+    state = { ...makeInitialState(), ...state };
+  }
+  if (state.v < STATE_VERSION) {
+    state = upgradeFromV1(state);
   }
   return state;
+}
+
+function upgradeFromV1(state) {
+  return { ...state, v: STATE_VERSION };
 }

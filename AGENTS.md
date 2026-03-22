@@ -71,7 +71,7 @@ OBR.room.setMetadata({ [METADATA_KEY]: nextState }).catch(console.error);
 - `TURNS_PER_HOUR = 6`
 - `TORCH_DURATION = 6`
 - `LANTERN_DURATION = 24`
-- `METADATA_KEY = "com.dungeon-tracker/state"`
+- `METADATA_KEY = "io.manumax.dungeon-tracker/state"`
 
 ## Code Style Guidelines
 

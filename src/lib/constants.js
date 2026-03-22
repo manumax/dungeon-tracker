@@ -4,7 +4,7 @@ export const TURNS_PER_DAY   = 36;
 export const TURNS_PER_HOUR  = 6;
 export const HOURS_PER_DAY   = TURNS_PER_DAY / TURNS_PER_HOUR;
 
-export const METADATA_KEY    = "com.dungeon-tracker/state";
+export const METADATA_KEY    = "io.manumax.dungeon-tracker/state";
 export const STATE_VERSION    = 1;
 
 export function getTurnMeta(globalIdx) {

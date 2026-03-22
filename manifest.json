@@ -5,7 +5,7 @@
   "icon": "/icon.svg",
   "action": {
     "title": "Dungeon Tracker",
-  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNi45Miw1SDVMMTQsMTRMMTUsMTMuMDZNMTkuOTYsMTkuMTJMMTkuMTIsMTkuOTZDMTguNzMsMjAuMzUgMTguMSwyMC4zNSAxNy43MSwxOS45NkwxNC41OSwxNi44NEwxMS45MSwxOS41TDEwLjUsMTguMDlMMTEuOTIsMTYuNjdMMyw3Ljc1VjNINy43NUwxNi42NywxMS45MkwxOC4wOSwxMC41TDE5LjUsMTEuOTFMMTYuODMsMTQuNThMMTkuOTUsMTcuN0MyMC4zNSwxOC4xIDIwLjM1LDE4LjczIDE5Ljk2LDE5LjEyWiIvPjwvc3ZnPg==",
+    "icon": "/icon.svg",
     "popover": "/",
     "height": 580,
     "width": 360

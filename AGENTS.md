@@ -27,7 +27,7 @@ npm run preview  # Preview production build
 ### Manifest Requirements
 - `manifest_version: 1` is REQUIRED
 - `popover` field must be a URL string (e.g., `"/"`), NOT an object
-- Toolbar icon via `icon` field in manifest
+- Toolbar icon via `icon` field in manifest — **must use absolute path** with leading `/` (e.g., `"/icon.svg"`) for OBR to display it correctly
 
 ### OBR API Patterns
 - `OBR.onReady()` returns **void** (SDK v3.x) — no cleanup needed

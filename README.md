@@ -37,12 +37,12 @@ Then in Owlbear Rodeo:
 
 ## Deployment
 
+Deployed at: `https://dungeon-tracker-obr.netlify.app/manifest.json`
+
+To build locally:
 ```bash
 npm run build
 ```
-
-Host the `dist/` folder anywhere (Netlify, Vercel, GitHub Pages).  
-Point OBR to `https://your-domain.com/manifest.json`.
 
 ## File structure
 

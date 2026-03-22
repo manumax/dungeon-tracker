@@ -183,3 +183,5 @@ src/
    ```
 3. Netlify automatically builds and deploys from `main` branch
 4. Extension URL: `https://dungeon-tracker-obr.netlify.app/manifest.json`
+
+**Important:** Always push to `develop` branch first. Never commit directly to `main`.

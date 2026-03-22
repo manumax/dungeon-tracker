@@ -1,4 +1,4 @@
-# Lantern — Dungeon Tracker
+# Dungeon Tracker
 
 ## Goal
 Build and style an Owlbear Rodeo toolbar popover extension that tracks dungeon turns, wandering monster checks, and rest events, synced across players via OBR room metadata.
@@ -29,7 +29,7 @@ Build and style an Owlbear Rodeo toolbar popover extension that tracks dungeon t
 12. **Variable alignment** — `useTracker.js` has inconsistent whitespace in variable declarations
 13. **Redundant variable** — `turnNum = idx + 1` could be inlined
 14. **Unused React import** — `import React` not needed with React 17+ JSX transform
-15. **Outdated comment** — "OSE Turn Tracker" in constants.js; app is "Lantern"
+15. **Outdated comment** — "OSE Turn Tracker" in constants.js; app is "Dungeon Tracker"
 
 ### Design (4)
 16. **Toolbar icon** — Still warm-gold SVG; doesn't match teal palette
@@ -41,7 +41,7 @@ Build and style an Owlbear Rodeo toolbar popover extension that tracks dungeon t
 
 ## Completed
 - ✅ Created AGENTS.md, git repo, directory structure
-- ✅ Extension renamed to "Lantern"
+- ✅ Extension renamed to "Dungeon Tracker"
 - ✅ Multiverse dark theme UI
 - ✅ Stable event IDs (`crypto.randomUUID()`)
 - ✅ State versioning with migration

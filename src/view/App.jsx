@@ -91,6 +91,7 @@ export default function App() {
           const start = h * TURNS_PER_HOUR;
           return (
             <div key={h} className="hour-group">
+              <div className="hour-group__label">Hour {h + 1}</div>
               {ALL_TURNS.slice(start, start + TURNS_PER_HOUR).map((idx) => (
                 <TurnRow
                   key={idx}

@@ -18,7 +18,7 @@
   --rule:        #cccccc;
 
   --font: "IBM Plex Mono", "Courier New", monospace;
-  --font-size: 11pt;
+  --font-size: 13pt;
   --line-height: 1.5;
 }
 
@@ -129,11 +129,12 @@ html, body {
 
 .tb-btn--primary {
   flex: 1;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+  border-right: 0;
 }
 .tb-btn--primary:not(:disabled):hover {
-  background: #222;
+  background: var(--paper-alt);
 }
 
 .tb-btn--ghost {
